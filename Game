@@ -1,0 +1,139 @@
+
+
+package com.company;
+
+
+import java.util.Scanner ;
+
+
+// Notes: later add the 3 round to win feature!
+
+
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println(" You are playing odds and evens. ");
+        System.out.print(" Type in your username. ");
+        Scanner name = new Scanner(System.in);
+        String playerName = name.nextLine();
+        System.out.println("Hello " + playerName);
+        System.out.println(" What do you choose, odds or evens? To choose odds type in 'o'. To choose evens type in 'e'. To end the game type in some other letter ");
+        Scanner oddOrEvens = new Scanner(System.in);
+        String oE = oddOrEvens.nextLine();
+        if (oE.equals("o") || oE.equals("O")){
+            //for (int i=0; i<3; i++) This one is needed for that feature
+             System.out.println( playerName+ " chosen odds, computer plays evens now!");
+            System.out.println("How many fingers do you want to point?(Choose a number 1-10 or else the game maybe wont work properly!)");
+            Scanner fingers= new Scanner(System.in);
+            int Finger=fingers.nextInt();
+            double compFinger=Math.floor(Math.random()*9+1);
+            double Final=Finger + compFinger;
+            String f=Final+"";
+
+            if(Final>1 && Final<10){
+
+                if (f.indexOf(0)==1 || f.indexOf(0)==3 || f.indexOf(0)==5 || f.indexOf(0)==7 || f.indexOf(0)==9){
+
+                    System.out.println(playerName+" pointed "+Finger+" fingers, computer pointed "+compFinger+ " fingers, the result is "+Final+"." +playerName+ " wins!"  );
+
+                    System.exit(0);
+                }
+                else {
+
+                    System.out.println(playerName+" pointed "+Finger+" fingers, computer pointed "+compFinger+ " fingers, the result is "+Final+"."+playerName+" looses!"  );
+                    System.exit(0);
+                }
+            }
+
+            else if ( 9 < Final && Final<21) {
+
+                if (f.indexOf(1) == 1 || f.indexOf(1) == 3 || f.indexOf(1) == 5 || f.indexOf(1) == 7 || f.indexOf(1) == 9) {
+
+                    System.out.println(playerName+" pointed " + Finger + " fingers, computer pointed " + compFinger + " fingers, the result is " + Final + "."+playerName+" wins!");
+
+                    System.exit(0);
+
+                } else {
+
+                    System.out.println(playerName+" pointed " + Finger + " fingers, computer pointed " + compFinger + " fingers, the result is " + Final + "."+playerName+" looses!");
+                    System.exit(0);
+
+                }
+
+
+            }
+            else {
+
+                System.out.println("Sorry ,"+playerName+" you showed "+Finger+ " fingers, that was not valid! Game is ended" );
+                System.exit(0);
+            }
+            //last line of essential if statement
+        }
+        else if (oE.equals("e")|| oE.equals("E") ){
+
+            System.out.println(playerName+ " chosen evens, computer plays odds now!");
+            System.out.println("How many fingers do you want to point?(Choose a number 1-10 or else the game maybe wont work properly!)");
+            Scanner fingers= new Scanner(System.in);
+            int Finger=fingers.nextInt();
+            double compFinger=Math.floor(Math.random()*9+1);
+            double Final=Finger + compFinger;
+            String f=Final+"";
+
+            if(Final>1 && Final<10){
+
+                if (f.indexOf(0)==2 || f.indexOf(0)==4 || f.indexOf(0)==6 || f.indexOf(0)==8 ){
+
+                    System.out.println(playerName+" pointed "+Finger+" fingers, computer pointed "+compFinger+ " fingers, the result is "+Final+"."+playerName+" wins!"  );
+
+                    System.exit(0);
+                }
+                else {
+
+                    System.out.println(playerName+" pointed "+Finger+" fingers, computer pointed "+compFinger+ " fingers, the result is "+Final+"."+playerName+" looses!"  );
+                    System.exit(0);
+                }
+            }
+
+            else if ( 9 < Final && Final<21) {
+
+                if (f.indexOf(1) == 0 || f.indexOf(1) == 2 || f.indexOf(1) == 4 || f.indexOf(1) == 6 || f.indexOf(1) == 8 ) {
+
+                    System.out.println(playerName+ " pointed " + Finger + " fingers, computer pointed " + compFinger + " fingers, the result is " + Final + "."+playerName+" wins!");
+
+                    System.exit(0);
+
+                } else {
+
+                    System.out.println(playerName+ " pointed " + Finger + " fingers, computer pointed " + compFinger + " fingers, the result is " + Final + "."+ playerName +" looses!");
+                    System.exit(0);
+
+                }
+
+
+            }
+            else {
+
+                System.out.println("Sorry ,"+playerName+" you showed "+Finger+ " fingers, that was not valid! Game is ended" );
+                System.exit(0);
+            }
+
+
+
+            //the last line of essential else if
+        }
+        else if (oE.equals("e")&& oE.equals("E")  ){
+
+        System.out.println("The game is over");
+            System.exit(0);
+
+        }
+
+
+        }
+
+
+    }
